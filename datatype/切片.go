@@ -51,34 +51,34 @@ func slicetest2() {
 */
 func slicetest3() {
 	s := []int{0, 1, 2, 3, 4, 5, 6, 7}
-	fmt.Println(s) 						//[0 1 2 3 4 5 6 7]
-	fmt.Println("长度：", len(s)) 	//8
-	fmt.Println("容量：", cap(s)) 	//8
+	fmt.Println(s)             //[0 1 2 3 4 5 6 7]
+	fmt.Println("长度：", len(s)) //8
+	fmt.Println("容量：", cap(s)) //8
 
 	s1 := s[2:]
-	fmt.Println(s1) 					//[2 3 4 5 6 7]
-	fmt.Println("长度：", len(s1)) 	//6
-	fmt.Println("容量：", cap(s1)) 	//6
+	fmt.Println(s1)             //[2 3 4 5 6 7]
+	fmt.Println("长度：", len(s1)) //6
+	fmt.Println("容量：", cap(s1)) //6
 
 	s1 = s[:2]
-	fmt.Println(s1)						//[0 1]
-	fmt.Println("长度：", len(s1)) 	//2
-	fmt.Println("容量：", cap(s1)) 	//8
+	fmt.Println(s1)             //[0 1]
+	fmt.Println("长度：", len(s1)) //2
+	fmt.Println("容量：", cap(s1)) //8
 
 	s1 = s[2:5]
-	fmt.Println(s1) 					//[2 3 4]
-	fmt.Println("长度：", len(s1)) 	//3
-	fmt.Println("容量：", cap(s1)) 	//6
+	fmt.Println(s1)             //[2 3 4]
+	fmt.Println("长度：", len(s1)) //3
+	fmt.Println("容量：", cap(s1)) //6
 
 	s1 = s[4:5:7]
-	fmt.Println(s1) 					//[4]
-	fmt.Println("长度：", len(s1)) 	//1
-	fmt.Println("容量：", cap(s1)) 	//3
+	fmt.Println(s1)             //[4]
+	fmt.Println("长度：", len(s1)) //1
+	fmt.Println("容量：", cap(s1)) //3
 
 	s1 = s[:]
-	fmt.Println(s1) 					//[0 1 2 3 4 5 6 7]
-	fmt.Println("长度：", len(s1)) 	//8
-	fmt.Println("容量：", cap(s1)) 	//8
+	fmt.Println(s1)             //[0 1 2 3 4 5 6 7]
+	fmt.Println("长度：", len(s1)) //8
+	fmt.Println("容量：", cap(s1)) //8
 }
 
 /*
@@ -86,42 +86,42 @@ func slicetest3() {
 copy(dest, source)
 copy(dest, source[1:3])
 使用拷贝操作后s1 s2是两个独立空间 不会相互影响
- */
+*/
 func slicetest4() {
-	s1:=[]int{1,2,3,4}
-	s2:=make([]int, 3)
+	s1 := []int{1, 2, 3, 4}
+	s2 := make([]int, 3)
 
 	copy(s2, s1)
 
-	fmt.Println(s1)					//[1 2 3 4]
-	fmt.Printf("%p\n",s1)	//0xc000010360
-	fmt.Println(s2)					//[1 2 3]
-	fmt.Printf("%p\n",s2)	//0xc000010380
+	fmt.Println(s1)        //[1 2 3 4]
+	fmt.Printf("%p\n", s1) //0xc000010360
+	fmt.Println(s2)        //[1 2 3]
+	fmt.Printf("%p\n", s2) //0xc000010380
 
-	s2=make([]int, 5)
+	s2 = make([]int, 5)
 	copy(s2, s1)
 
-	fmt.Println(s1)					//[1 2 3 4]
-	fmt.Printf("%p\n",s1)	//0xc000010360
-	fmt.Println(s2)					//[1 2 3 4 0]
-	fmt.Printf("%p\n",s2)	//0xc00000c2d0
+	fmt.Println(s1)        //[1 2 3 4]
+	fmt.Printf("%p\n", s1) //0xc000010360
+	fmt.Println(s2)        //[1 2 3 4 0]
+	fmt.Printf("%p\n", s2) //0xc00000c2d0
 }
 
 /*
 切片作为函数参数
 切片作为函数参数是地址传递 形参可以改变实参的值
- */
+*/
 func slicetest5() {
-	s1:=[]int{1,2,3,4}
+	s1 := []int{1, 2, 3, 4}
 
 	slicetest6(s1)
 
-	fmt.Println("after:", s1)		//[9 10 3 4]
+	fmt.Println("after:", s1) //[9 10 3 4]
 }
 func slicetest6(s []int) {
 	s[0] = 9
 	s[1] = 10
-	fmt.Println("形参修改：", s)		//[9 10 3 4]
+	fmt.Println("形参修改：", s) //[9 10 3 4]
 }
 func main() {
 	//slicetest1()
