@@ -79,10 +79,29 @@ func main0107() {
 	fmt.Println(s)
 }
 
-func main() {
+func main0108() {
 	str := "    are  u   ok  ?     "
 	//去掉字符串中的空格  并返回有效数据切片
 	s := strings.Fields(str)
 
 	fmt.Println(s)
+}
+
+//判断字符串是否相等
+func strtest1() {
+
+	//区分大小写
+	fmt.Println("go" == "go") //true
+	fmt.Println("GO" == "go") //false
+
+	//区分大小写
+	fmt.Println(strings.Compare("GO", "go")) //-1
+	fmt.Println(strings.Compare("go", "go")) //0
+
+	//不区分大小写
+	fmt.Println(strings.EqualFold("GO", "go")) //true
+}
+
+func main() {
+	strtest1()
 }
