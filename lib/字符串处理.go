@@ -102,6 +102,18 @@ func strtest1() {
 	fmt.Println(strings.EqualFold("GO", "go")) //true
 }
 
+//字符串拼接
+func strtest2() {
+	//需要先导入Strings包
+	s1 := "字符串 "
+	s2 := "拼接 乱起吧早"
+	var build strings.Builder
+	build.WriteString(s1)
+	build.WriteString(s2)
+	s3 := build.String()
+	fmt.Println(s3)
+}
 func main() {
-	strtest1()
+	//strtest1()
+	strtest2()
 }
