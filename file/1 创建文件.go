@@ -55,6 +55,7 @@ func filecreatetest2()  {
 
 /*
 打开文件
+不能创建新文件
  */
 func filecreatetest3()  {
 	//以只读方式打开
@@ -68,16 +69,17 @@ func filecreatetest3()  {
 	}
 	defer file.Close()
 
-	b := []byte("你愁啥")
-	file.WriteAt(b, 1)
+	b := []byte("hello")
+	file.WriteAt(b, 0)
 
 	//获取文件
-	seek, err := file.Seek(0, io.SeekEnd)
+	seek, err := file.Seek(1, io.SeekEnd)
 	fmt.Println(seek)
 
-	b1 := []byte("抽你咋地")
+	b1 := []byte("world")
 	file.WriteAt(b1, seek)
 }
+
 /*
 
  */
