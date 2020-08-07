@@ -14,6 +14,7 @@ func main0201() {
 	//2、将整型转成字符串
 	//formatInt(数据，进制) 二进制  八进制  十进制 十六进
 	//s:=strconv.FormatInt(123,10)
+	//s:=strconv.FormatUint(123,10)
 	//s:=strconv.Itoa(123456)
 	//fmt.Println(s)
 
