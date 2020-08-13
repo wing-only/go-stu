@@ -9,7 +9,7 @@ import (
 	"fmt"
 )
 
-// 加密
+// 公钥加密
 func RsaEncrypt(origData []byte) ([]byte, error) {
 	block, _ := pem.Decode(publicKey) //将密钥解析成公钥实例
 	if block == nil {
@@ -23,7 +23,7 @@ func RsaEncrypt(origData []byte) ([]byte, error) {
 	return rsa.EncryptPKCS1v15(rand.Reader, pub, origData) //RSA算法加密
 }
 
-// 解密
+// 私钥解密
 func RsaDecrypt(ciphertext []byte) ([]byte, error) {
 	block, _ := pem.Decode(privateKey) //将密钥解析成私钥实例
 	if block == nil {
@@ -71,10 +71,11 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	fmt.Println("RSA加密", string(data))
+	fmt.Println("RSA公钥加密", string(data))
+
 	origData, err := RsaDecrypt(data) //RSA解密
 	if err != nil {
 		panic(err)
 	}
-	fmt.Println("RSA解密", string(origData))
+	fmt.Println("RSA私钥解密", string(origData))
 }
