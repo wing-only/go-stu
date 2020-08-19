@@ -26,38 +26,48 @@ func maptest1() {
 
 /*
 删除map元素
- */
+*/
 func maptest2() {
-	m:=map[int]string{101:"刘备", 103:"关羽", 105:"张飞"}
-	fmt.Println(m)			//map[101:刘备 103:关羽 105:张飞]
+	m := map[int]string{101: "刘备", 103: "关羽", 105: "张飞"}
+	fmt.Println(m) //map[101:刘备 103:关羽 105:张飞]
 
 	delete(m, 103)
-	fmt.Println(m)			//map[101:刘备 105:张飞]
+	fmt.Println(m) //map[101:刘备 105:张飞]
 
-	delete(m, 111)		//key不存在，不会报错
-	fmt.Println(m)			//map[101:刘备 105:张飞]
+	delete(m, 111) //key不存在，不会报错
+	fmt.Println(m) //map[101:刘备 105:张飞]
 }
 
 /*
 map作为函数参数
 map作为函数参数是地址传递 （引用传递）
- */
+*/
 func maptest3() {
-	m:=make(map[string]string)
+	m := make(map[string]string)
 	m["name"] = "wing"
 	m["hobby"] = "代码"
 
 	maptest4(m)
-	fmt.Println("调用后", m)			//map[code:golang hobby:代码 name:张飞]
+	fmt.Println("调用后", m) //map[code:golang hobby:代码 name:张飞]
 }
 func maptest4(m map[string]string) {
 	m["name"] = "张飞"
 	m["code"] = "golang"
 
-	fmt.Println("形参中：", m)		//map[code:golang hobby:代码 name:张飞]
+	fmt.Println("形参中：", m) //map[code:golang hobby:代码 name:张飞]
+}
+
+func maptest5() {
+
+	var MI_DATA = map[string]string{"open": "0", "close": "1", "on": "0", "off": "1", "unknown": "2"}
+	xx := MI_DATA["ssss"]
+
+	fmt.Println(xx)
+
 }
 func main() {
 	//maptest1()
 	//maptest2()
-	maptest3()
+	//maptest3()
+	maptest5()
 }
