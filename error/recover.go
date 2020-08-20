@@ -13,22 +13,26 @@ func demo(i int) {
 		//fmt.Println(recover())
 		err := recover()
 		if err != nil {
-			fmt.Println("demo函数异常：", err)
+			fmt.Println("程序 异常时 执行：", err)
+		} else {
+			fmt.Println("程序 不报错时 执行")
 		}
+
+		fmt.Println("程序 final 最终 执行")
 	}()
 
 	fmt.Println("1")
 
 	//空指针引用
-	var p *int
-	*p = 123 		//err  //recover作用范围
+	//var p *int
+	//*p = 123 		//err  //recover作用范围
 
 	fmt.Println("2")
 	//数组元素个数为10个  len(arr)  数组下标是从0-9
 	var arr [10]int
 
 	//如果传递超出数组下标值 导致数组下标越界
-	arr[i] = 100 		//panic 系统处理  导致程序崩溃
+	//arr[i] = 100 		//panic 系统处理  导致程序崩溃
 
 	fmt.Println(arr)
 }
