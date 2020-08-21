@@ -27,6 +27,31 @@ func errfortest2() {
 	fmt.Println(c)
 }
 
+func errfortest3() {
+	for i := 0; i < 5; i++ {
+		errfortest4()
+	}
+}
+
+func errfortest4() {
+	defer func() {
+		if err := recover(); err != nil {
+			fmt.Println("异常了。catch")
+		}
+
+		fmt.Println("最终执行。 finally")
+	}()
+
+	errfortest5()
+}
+func errfortest5() {
+	a := 2
+	b := 0
+	c := a / b
+	fmt.Println(c)
+}
+
 func main() {
-	errfortest1()
+	//errfortest1()
+	errfortest3()
 }

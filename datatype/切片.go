@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+)
 
 //切片定义
 func slicetest1() {
@@ -123,10 +126,93 @@ func slicetest6(s []int) {
 	s[1] = 10
 	fmt.Println("形参修改：", s) //[9 10 3 4]
 }
+
+type Person struct {
+	id    uint64
+	name  string
+	sex   *int
+	hobby *string
+}
+
+func slicetest7() {
+	p1 := Person{}
+	p1.id = 1001
+	p1.name = "张三"
+	sex1 := 1
+	p1.sex = &sex1
+	hobby1 := "swim"
+	p1.hobby = &hobby1
+
+	p2 := Person{}
+	p2.id = 1002
+	p2.name = "lisi"
+	sex2 := 2
+	p2.sex = &sex2
+	hobby2 := "jump"
+	p2.hobby = &hobby2
+
+	a := []Person{p1, p2}
+	fmt.Println(a)
+	for _, p := range a {
+		fmt.Println(p)
+	}
+
+	fmt.Println("-----------------------")
+
+	for i, p := range a {
+		p.name = p.name + "-" + strconv.Itoa(i)
+		newHobby := *p.hobby + "-" + strconv.Itoa(i)
+		p.hobby = &newHobby
+	}
+	fmt.Println(a)
+	for _, p := range a {
+		fmt.Println(p)
+	}
+
+}
+
+func slicetest8() {
+	p1 := Person{}
+	p1.id = 1001
+	p1.name = "张三"
+	sex1 := 1
+	p1.sex = &sex1
+	hobby1 := "swim"
+	p1.hobby = &hobby1
+
+	p2 := Person{}
+	p2.id = 1002
+	p2.name = "lisi"
+	sex2 := 2
+	p2.sex = &sex2
+	hobby2 := "jump"
+	p2.hobby = &hobby2
+
+	a := []*Person{&p1, &p2}
+	fmt.Println(a)
+	for _, p := range a {
+		fmt.Println(*p)
+	}
+
+	fmt.Println("-----------------------")
+
+	for i, p := range a {
+		p.name = p.name + "-" + strconv.Itoa(i)
+		newHobby := *p.hobby + "-" + strconv.Itoa(i)
+		p.hobby = &newHobby
+	}
+	fmt.Println(a)
+	for _, p := range a {
+		fmt.Println(*p)
+	}
+
+}
 func main() {
 	//slicetest1()
 	//slicetest2()
 	//slicetest3()
 	//slicetest4()
-	slicetest5()
+	//slicetest5()
+	slicetest7()
+	//slicetest8()
 }
