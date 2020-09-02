@@ -1,4 +1,4 @@
-module wing.com/go-stu
+module github.com/wing-only/go-stu
 
 go 1.14
 
