@@ -2,6 +2,7 @@ package main
 
 import "fmt"
 
+
 /*
 常量
 格式 const 常量名 数据类型=值  一般常量大写字母
