@@ -73,9 +73,14 @@ func test3()  {
 	fmt.Printf("用户名是%s，密码是%d", name, passwd)
 }
 
+func test4()  {
+	sprintf := fmt.Sprintf("hello, %s", "wing")
+	fmt.Println(sprintf)
+}
 
 func main() {
 	//test1()
 	//test2()
-	test3()
+	//test3()
+	test4()
 }

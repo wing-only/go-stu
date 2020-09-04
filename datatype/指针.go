@@ -90,10 +90,27 @@ func pointtest7(p *int)  {
 	p = &b
 	fmt.Println("函数调用：", p)			//0xc00000e0c8   改变了地址
 }
+
+func pointtest8()  {
+	var a = 10
+	var b = &a
+	var c = &b
+	var d = &c
+
+	fmt.Println(a)
+	fmt.Printf("%T", a)
+	fmt.Println(b)
+	fmt.Printf("%T", b)
+	fmt.Println(c)
+	fmt.Printf("%T", c)
+	fmt.Println(d)
+	fmt.Printf("%T", d)
+}
 func main() {
 	//pointtest1()
 	//pointtest2()
 	//pointtest3()
 	//pointtest4()
-	pointtest6()
+	//pointtest6()
+	pointtest8()
 }
